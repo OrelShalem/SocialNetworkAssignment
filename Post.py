@@ -144,8 +144,7 @@ class ImagePost(Post):
         try:
             image = mpimg.imread(self.content)
         except FileNotFoundError:
-            print(f"the picture not found int {self.content}")
-            return
+            raise ValueError(f"the picture not found in {self.content}")
         plt.imshow(image)
         plt.show()
         print("Shows picture")
